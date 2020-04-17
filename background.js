@@ -25,7 +25,7 @@ function tick() {
     } else {
         chrome.browserAction.setBadgeText({ text: currentValue.toString() + "'" });
         currentValue--;
-        timer = setTimeout(tick, 60000);
+        timer = setTimeout(tick, 50);
     }
 }
 
@@ -36,6 +36,7 @@ function notify() {
         title: '25 minutes have passed',
         message: 'One pomodoro complete, take a short break away from the computer.',
         requireInteraction: true,
+        buttons: [{ title: 'Restart timer' }]
     })
 }
 
@@ -52,3 +53,11 @@ chrome.browserAction.onClicked.addListener(toggleTimer);
 chrome.browserAction.setIcon({ path: 'gfx/icon-32.png' });
 
 chrome.browserAction.setBadgeText({ text: '' });
+
+chrome.notifications.onShowSettings.addListener(function () {
+    chrome.notifications.clear(notificationid)
+});
+
+chrome.notifications.onButtonClicked.addListener(function (notifId, btnIdx) {
+    start();
+});
