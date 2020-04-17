@@ -13,13 +13,13 @@ function stop() {
 }
 
 function reset() {
-    chrome.browserAction.setBadgeText({ text: '' });
-    currentValue = 25;
     clearTimeout(timer);
+    currentValue = 25;
+    chrome.browserAction.setBadgeText({ text: '' });
 }
 
 function tick() {
-    if (currentValue == 0) {
+    if (currentValue <= 0) {
         stop();
         notify();
     } else {
@@ -34,7 +34,7 @@ function notify() {
         type: 'basic',
         iconUrl: 'gfx/icon-128.png',
         title: '25 minutes have passed',
-        message: 'One pomodoro complete, take a short break away from the computer.',
+        message: 'One pomodoro completed, take a short break.',
         requireInteraction: true,
         buttons: [{ title: 'Restart timer' }]
     })
@@ -48,16 +48,8 @@ function toggleTimer() {
     }
 }
 
-chrome.browserAction.onClicked.addListener(toggleTimer);
-
-chrome.browserAction.setIcon({ path: 'gfx/icon-32.png' });
-
-chrome.browserAction.setBadgeText({ text: '' });
-
-chrome.notifications.onShowSettings.addListener(function () {
-    chrome.notifications.clear(notificationid)
-});
-
-chrome.notifications.onButtonClicked.addListener(function (notifId, btnIdx) {
+chrome.notifications.onButtonClicked.addListener(function (_, __) {
     start();
 });
+
+chrome.browserAction.onClicked.addListener(toggleTimer);
