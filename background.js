@@ -25,7 +25,7 @@ function tick() {
     } else {
         chrome.browserAction.setBadgeText({ text: currentValue.toString() + "'" });
         currentValue--;
-        timer = setTimeout(tick, 50);
+        timer = setTimeout(tick, 60000);
     }
 }
 
