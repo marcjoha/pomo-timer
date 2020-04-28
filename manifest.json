@@ -1,6 +1,6 @@
 {
     "name": "PomoTimer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A seriously minimalistic Pomodoro timer",
     "manifest_version": 2,
     "icons": {
@@ -19,7 +19,7 @@
     ],
     "browser_action": {
         "default_icon": "gfx/icon-32.png",
-        "default_title": "PomoTimer"
+        "default_title": "A seriously minimalistic Pomodoro timer"
     },
     "offline_enabled": true
 }
