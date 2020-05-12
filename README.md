@@ -1,6 +1,6 @@
 # pomo-timer
 
-A seriously minimalistic Pomodoro timer - just a 25 minutes timer, really. Available at  https://chrome.google.com/webstore/detail/pomotimer/hefdcogdhfodpbcidnkecllmknddjghc.
+A seriously minimalistic Pomodoro timer – just a 25 minutes timer, really. Available at  https://chrome.google.com/webstore/detail/pomotimer/hefdcogdhfodpbcidnkecllmknddjghc.
 
 ## Notification goes away too fast?
 
